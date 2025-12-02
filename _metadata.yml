@@ -1,0 +1,10 @@
+# Shared metadata for all pages
+author: "Masaki EGUCHI, Ph.D."
+date-modified: last-modified
+lang: en
+highlight-style: github
+code-annotations: hover
+
+# # Custom variables
+course-title: "Linguistic Data Analysis"
+

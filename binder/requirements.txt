@@ -1,0 +1,9 @@
+# Requirements for MyBinder environment
+spacy>=3.7.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.5.0
+jupyter>=1.0.0
+notebook>=6.4.0
+nbgrader>=0.8.0

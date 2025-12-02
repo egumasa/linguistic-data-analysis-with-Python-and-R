@@ -1,0 +1,1 @@
+Sitemap: https://egumasa.github.io/linguistic-data-analysis-with-Python-and-R/sitemap.xml

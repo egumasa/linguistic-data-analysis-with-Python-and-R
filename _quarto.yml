@@ -1,0 +1,67 @@
+project:
+  type: website
+  title: "Linguistic Data Analysis with Python and R"
+  output-dir: docs
+  render:
+    - "!extra/"
+
+website:
+  title: "Linguistic Data Analysis with Python and R"
+  description: "Tutorials on linguistic data analysis"
+  site-url: "https://egumasa.github.io/linguistic-data-analysis-with-Python-and-R/"
+  repo-url: "https://github.com/egumasa/linguistic-data-analysis-with-Python-and-R"
+  repo-actions: [edit, issue]
+  
+  navbar:
+    pinned: true
+    background: primary
+    left:
+      - text: "Home"
+        href: index.md
+      - text: "Tutorials"
+        menu:
+          - text: "Overview"
+            href: tutorials/index.md
+          # - text: "1. spaCy Basics"
+          #   href: tutorials/01-spacy-basics/index.md
+          # - text: "2. Tokens & POS"
+          #   href: tutorials/02-tokens-pos/index.md
+          # - text: "3. Dependencies & NER"
+          #   href: tutorials/03-deps-ner/index.md
+          # - text: "4. Pipelines"
+          #   href: tutorials/04-pipelines/index.md
+    right:
+      - text: "Analyzer"
+        href: "https://huggingface.co/spaces/egumasa/simple-text-analyzer"
+        aria-label: Analyzer
+      - icon: github
+        href: "https://github.com/egumasa/linguistic-data-analysis-with-Python-and-R"
+        aria-label: GitHub
+
+
+
+format:
+  html:
+    theme:
+      - litera
+      - css/style.scss
+
+    # css: css/styles.css
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+    smooth-scroll: true
+    link-external-icon: true
+    link-external-newwindow: true
+
+
+execute:
+  freeze: auto
+  engine: jupyter  # or python
+  python: uv run python  # This tells Quarto to use uv's Python
+
+metadata-files:
+  - _metadata.yml

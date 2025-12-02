@@ -1,0 +1,312 @@
+---
+title: "Unit 1: spaCy Basics"
+subtitle: "Introduction to spaCy's Core Objects and Architecture"
+format: 
+  revealjs:
+    theme: default
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    css: ../../css/slides.css
+---
+
+# Welcome to spaCy! {background-color="#1e73be"}
+
+## What is spaCy?
+
+::: {.incremental}
+- **Industrial-strength** Natural Language Processing library
+- **Production-ready** - Built for real applications
+- **Fast and efficient** - Optimized for speed
+- **Easy to use** - Intuitive Python API
+- **Modern** - Deep learning models included
+:::
+
+## Why spaCy for Linguistic Analysis?
+
+::: {.columns}
+::: {.column width="50%"}
+### Traditional Approaches
+- Regular expressions
+- String manipulation
+- Manual parsing
+- Rule-based systems
+:::
+
+::: {.column width="50%"}
+### spaCy Advantages
+- Automatic tokenization
+- Part-of-speech tagging
+- Dependency parsing
+- Named entity recognition
+- Pre-trained models
+:::
+:::
+
+# Core Architecture {background-color="#1e73be"}
+
+## The spaCy Pipeline
+
+```python
+import spacy
+
+# Load a pre-trained model
+nlp = spacy.load("en_core_web_sm")
+
+# Process text through the pipeline
+doc = nlp("Hello, world!")
+
+# Text → Doc → Tokens → Linguistic features
+```
+
+::: {.notes}
+This is the fundamental spaCy workflow. The nlp object represents a processing pipeline, and calling it on text returns a Doc object containing all the linguistic analysis.
+:::
+
+## Object Hierarchy
+
+```
+nlp (Language object)
+ └── doc (Doc object)          # Processed document
+     ├── token[0] (Token)      # "Hello"
+     ├── token[1] (Token)      # ","  
+     └── token[2] (Token)      # "world"
+         └── attributes        # .text, .pos_, .lemma_
+```
+
+## Interactive Example: First Steps
+
+```{python}
+#| echo: true
+#| eval: false
+# Note: This will be interactive with Pyodide when extension is installed
+
+# For now, let's see what this would look like:
+text = "Natural language processing is fascinating!"
+
+# In a browser with Pyodide, you could run:
+# doc = nlp(text)
+# print(f"Text: {text}")
+# print(f"Number of tokens: {len(doc)}")
+```
+
+*Note: Live code execution will be available once Quarto Live/Pyodide is configured*
+
+# Working with Documents {background-color="#1e73be"}
+
+## The Doc Object
+
+::: {.incremental}
+- **Container** for processed text
+- **Sequence** of Token objects
+- **Rich annotations** - POS, dependencies, entities
+- **Efficient** - C-level data structures
+- **Iterable** - Can loop through tokens
+:::
+
+## Document Properties
+
+```python
+doc = nlp("The quick brown fox jumps.")
+
+# Basic properties
+len(doc)           # Number of tokens: 6
+doc.text           # Original text
+doc[0]             # First token: "The"
+doc[1:3]           # Token span: "quick brown"
+```
+
+## Interactive Example: Exploring Documents
+
+```{python}
+#| echo: true
+#| eval: false
+# Simple tokenization example (will be live with Pyodide)
+
+text = "AI and NLP are transforming how we analyze language."
+
+# This would be interactive in the browser:
+# for i, token in enumerate(doc):
+#     print(f"Token {i}: '{token.text}'")
+```
+
+# Working with Tokens {background-color="#1e73be"}
+
+## Essential Token Attributes
+
+::: {.columns}
+::: {.column width="50%"}
+### Text & Form
+- `.text` - Original text
+- `.lemma_` - Root form
+- `.lower_` - Lowercase
+- `.shape_` - Word shape
+:::
+
+::: {.column width="50%"}
+### Linguistic Properties
+- `.pos_` - Part of speech
+- `.tag_` - Detailed POS tag
+- `.dep_` - Dependency relation
+- `.ent_type_` - Entity type
+:::
+:::
+
+## Token Boolean Properties
+
+```python
+token.is_alpha     # Is alphabetic?
+token.is_punct     # Is punctuation?
+token.is_stop      # Is stop word?
+token.is_digit     # Is digit?
+token.like_url     # Looks like URL?
+token.like_email   # Looks like email?
+```
+
+## Interactive Example: Token Analysis
+
+```{python}
+#| echo: true  
+#| eval: false
+# Token exploration (interactive with Pyodide)
+
+text = "The researchers published their findings in 2023."
+
+# Would display live results:
+# for token in doc:
+#     print(f"'{token.text}' -> {token.pos_} -> {token.lemma_}")
+```
+
+# Practical Applications {background-color="#1e73be"}
+
+## Text Preprocessing Made Easy
+
+::: {.incremental}
+- **Tokenization** - Automatic, context-aware
+- **Normalization** - Lemmatization, case handling
+- **Filtering** - Remove stop words, punctuation
+- **Feature extraction** - POS patterns, entity types
+:::
+
+## Example: Content Word Extraction
+
+```python
+def extract_content_words(text):
+    doc = nlp(text)
+    return [token.lemma_.lower() 
+            for token in doc 
+            if token.is_alpha and not token.is_stop]
+
+# Usage
+content = extract_content_words("The researchers analyzed the data.")
+# Result: ["researcher", "analyze", "datum"]
+```
+
+## Real-world Use Cases
+
+::: {.columns}
+::: {.column width="50%"}
+### Text Analysis
+- Document similarity
+- Keyword extraction  
+- Text classification
+- Sentiment analysis
+:::
+
+::: {.column width="50%"}
+### Linguistic Research
+- Corpus analysis
+- Syntactic patterns
+- Lexical diversity
+- Language change studies
+:::
+:::
+
+# Getting Started {background-color="#1e73be"}
+
+## Installation & Setup
+
+```bash
+# Install spaCy
+pip install spacy
+
+# Download English model
+python -m spacy download en_core_web_sm
+```
+
+```python
+# Basic setup
+import spacy
+nlp = spacy.load("en_core_web_sm")
+```
+
+## Your First spaCy Program
+
+```python
+import spacy
+
+# Load the model
+nlp = spacy.load("en_core_web_sm")
+
+# Process text
+text = "Hello, spaCy learners!"
+doc = nlp(text)
+
+# Explore tokens
+for token in doc:
+    print(f"{token.text} -> {token.pos_}")
+```
+
+## Ready to Practice?
+
+::: {.callout-tip}
+## 🚀 Hands-on Assignment
+
+**Time to get your hands dirty with real spaCy code!**
+
+Choose your environment:
+- [Launch in Binder](https://mybinder.org/v2/gh/egumasa/linguistic-data-analysis-with-Python-and-R/HEAD?labpath=notebooks%2F01_tokens_pos_assignment.ipynb)
+- [Open in Colab](https://colab.research.google.com/github/egumasa/linguistic-data-analysis-with-Python-and-R/blob/main/notebooks/01_tokens_pos_assignment.ipynb)
+
+**What you'll do:**
+- Load spaCy models
+- Process your first documents  
+- Explore token attributes
+- Build analysis functions
+:::
+
+# What's Next? {background-color="#1e73be"}
+
+## Learning Path
+
+1. ✅ **Unit 1: spaCy Basics** (Current)
+   - Core objects and pipeline
+
+2. ➡️ **Unit 2: Tokens & POS** 
+   - Deep dive into linguistic features
+
+3. ⭐ **Unit 3: Dependencies & NER**
+   - Syntax and named entities
+
+4. 🔧 **Unit 4: Pipelines**
+   - Custom components and workflows
+
+## Key Takeaways
+
+::: {.incremental}
+- spaCy provides **industrial-strength NLP** capabilities
+- The **pipeline architecture** processes text into rich linguistic objects
+- **Doc and Token objects** give you access to detailed language analysis
+- **Practical applications** range from text preprocessing to linguistic research
+:::
+
+## Resources
+
+- 📚 [spaCy Documentation](https://spacy.io)
+- 💻 [Assignment Notebook](../../notebooks/01_tokens_pos_assignment.ipynb)
+- ➡️ [Unit 2: Tokens & POS](../02-tokens-pos/index.md)
+- 🏠 [Course Home](../../index.md)
+
+---
+
+**Questions?** Continue to the assignment notebook to practice these concepts!
