@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://egumasa.github.io/linguistic-data-analysis-with-Python-and-R/tutorials/index.html</loc>
+    <lastmod>2025-12-02T16:49:01.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://egumasa.github.io/linguistic-data-analysis-with-Python-and-R/tutorials/01-spacy-basics/slides.html</loc>
+    <lastmod>2025-12-02T16:53:41.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://egumasa.github.io/linguistic-data-analysis-with-Python-and-R/tutorials/01-spacy-basics/01_tokens_pos_assignment.html</loc>
+    <lastmod>2025-12-02T16:50:49.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://egumasa.github.io/linguistic-data-analysis-with-Python-and-R/tutorials/01-spacy-basics/index.html</loc>
+    <lastmod>2025-12-02T16:49:33.931Z</lastmod>
+  </url>
 </urlset>

@@ -4,6 +4,7 @@ project:
   output-dir: docs
   render:
     - "!extra/"
+    - "tutorials"
 
 website:
   title: "Linguistic Data Analysis with Python and R"

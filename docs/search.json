@@ -1,0 +1,310 @@
+[
+  {
+    "objectID": "tutorials/index.html",
+    "href": "tutorials/index.html",
+    "title": "Learning Units",
+    "section": "",
+    "text": "This course is organized into interactive learning units that combine conceptual slides with hands-on programming assignments. Each unit includes:\n\nInteractive slides with live Python examples (runs in your browser)\nAssignment notebooks with real spaCy tasks (launches in Binder or Colab)\nProgressive learning from basic concepts to advanced applications"
+  },
+  {
+    "objectID": "tutorials/index.html#course-units",
+    "href": "tutorials/index.html#course-units",
+    "title": "Learning Units",
+    "section": "",
+    "text": "This course is organized into interactive learning units that combine conceptual slides with hands-on programming assignments. Each unit includes:\n\nInteractive slides with live Python examples (runs in your browser)\nAssignment notebooks with real spaCy tasks (launches in Binder or Colab)\nProgressive learning from basic concepts to advanced applications"
+  },
+  {
+    "objectID": "tutorials/index.html#available-units",
+    "href": "tutorials/index.html#available-units",
+    "title": "Learning Units",
+    "section": "Available Units",
+    "text": "Available Units\n\n\nUnit 1: spaCy Basics\nLearning Objectives: - Understand spaCy’s core architecture - Learn about nlp, Doc, and Token objects - Perform basic text processing\nTopics Covered: - spaCy pipeline overview - Document and token structures - Basic tokenization concepts\n\n\nUnit 2: Tokens & POS\nLearning Objectives: - Analyze token attributes in depth - Work with part-of-speech tags - Extract lemmas and morphological features\nTopics Covered: - Token attributes (text, lemma_, pos_) - POS tagging and linguistic analysis - Filtering and processing tokens\n\n\nUnit 3: Dependencies & NER\nLearning Objectives: - Understand dependency parsing - Extract and work with named entities - Visualize linguistic structures\nTopics Covered: - Dependency parse trees - Named Entity Recognition (NER) - Entity types and spans\n\n\nUnit 4: Pipelines\nLearning Objectives: - Build custom spaCy pipelines - Add custom components - Optimize processing workflows\nTopics Covered: - Pipeline architecture - Custom components - Processing efficiency"
+  },
+  {
+    "objectID": "tutorials/index.html#learning-path",
+    "href": "tutorials/index.html#learning-path",
+    "title": "Learning Units",
+    "section": "Learning Path",
+    "text": "Learning Path\nWe recommend completing the units in order, as each builds upon concepts from the previous units:\n\nStart here: Unit 1 - spaCy Basics\nThen: Unit 2 - Tokens & POS\nContinue with: Unit 3 - Dependencies & NER\nFinish with: Unit 4 - Pipelines"
+  },
+  {
+    "objectID": "tutorials/index.html#how-to-use-this-course",
+    "href": "tutorials/index.html#how-to-use-this-course",
+    "title": "Learning Units",
+    "section": "How to Use This Course",
+    "text": "How to Use This Course\n\nRead the slides - Click on any unit to access interactive slides with live code examples\nPractice with assignments - Each unit includes hands-on Jupyter notebook assignments\nChoose your platform - Launch notebooks in either Binder (no setup) or Google Colab\nTest your understanding - Complete the exercises and run the provided test cases"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#what-is-spacy",
+    "href": "tutorials/01-spacy-basics/slides.html#what-is-spacy",
+    "title": "Unit 1: spaCy Basics",
+    "section": "What is spaCy?",
+    "text": "What is spaCy?\n\nIndustrial-strength Natural Language Processing library\nProduction-ready - Built for real applications\nFast and efficient - Optimized for speed\nEasy to use - Intuitive Python API\nModern - Deep learning models included"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#why-spacy-for-linguistic-analysis",
+    "href": "tutorials/01-spacy-basics/slides.html#why-spacy-for-linguistic-analysis",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Why spaCy for Linguistic Analysis?",
+    "text": "Why spaCy for Linguistic Analysis?\n\n\nTraditional Approaches\n\nRegular expressions\nString manipulation\nManual parsing\nRule-based systems\n\n\nspaCy Advantages\n\nAutomatic tokenization\nPart-of-speech tagging\nDependency parsing\nNamed entity recognition\nPre-trained models"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#the-spacy-pipeline",
+    "href": "tutorials/01-spacy-basics/slides.html#the-spacy-pipeline",
+    "title": "Unit 1: spaCy Basics",
+    "section": "The spaCy Pipeline",
+    "text": "The spaCy Pipeline\nimport spacy\n\n# Load a pre-trained model\nnlp = spacy.load(\"en_core_web_sm\")\n\n# Process text through the pipeline\ndoc = nlp(\"Hello, world!\")\n\n# Text → Doc → Tokens → Linguistic features\n\nThis is the fundamental spaCy workflow. The nlp object represents a processing pipeline, and calling it on text returns a Doc object containing all the linguistic analysis."
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#object-hierarchy",
+    "href": "tutorials/01-spacy-basics/slides.html#object-hierarchy",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Object Hierarchy",
+    "text": "Object Hierarchy\nnlp (Language object)\n └── doc (Doc object)          # Processed document\n     ├── token[0] (Token)      # \"Hello\"\n     ├── token[1] (Token)      # \",\"  \n     └── token[2] (Token)      # \"world\"\n         └── attributes        # .text, .pos_, .lemma_"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#interactive-example-first-steps",
+    "href": "tutorials/01-spacy-basics/slides.html#interactive-example-first-steps",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Interactive Example: First Steps",
+    "text": "Interactive Example: First Steps\n\n# Note: This will be interactive with Pyodide when extension is installed\n\n# For now, let's see what this would look like:\ntext = \"Natural language processing is fascinating!\"\n\n# In a browser with Pyodide, you could run:\n# doc = nlp(text)\n# print(f\"Text: {text}\")\n# print(f\"Number of tokens: {len(doc)}\")\n\nNote: Live code execution will be available once Quarto Live/Pyodide is configured"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#the-doc-object",
+    "href": "tutorials/01-spacy-basics/slides.html#the-doc-object",
+    "title": "Unit 1: spaCy Basics",
+    "section": "The Doc Object",
+    "text": "The Doc Object\n\nContainer for processed text\nSequence of Token objects\nRich annotations - POS, dependencies, entities\nEfficient - C-level data structures\nIterable - Can loop through tokens"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#document-properties",
+    "href": "tutorials/01-spacy-basics/slides.html#document-properties",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Document Properties",
+    "text": "Document Properties\ndoc = nlp(\"The quick brown fox jumps.\")\n\n# Basic properties\nlen(doc)           # Number of tokens: 6\ndoc.text           # Original text\ndoc[0]             # First token: \"The\"\ndoc[1:3]           # Token span: \"quick brown\""
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#interactive-example-exploring-documents",
+    "href": "tutorials/01-spacy-basics/slides.html#interactive-example-exploring-documents",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Interactive Example: Exploring Documents",
+    "text": "Interactive Example: Exploring Documents\n\n# Simple tokenization example (will be live with Pyodide)\n\ntext = \"AI and NLP are transforming how we analyze language.\"\n\n# This would be interactive in the browser:\n# for i, token in enumerate(doc):\n#     print(f\"Token {i}: '{token.text}'\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#essential-token-attributes",
+    "href": "tutorials/01-spacy-basics/slides.html#essential-token-attributes",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Essential Token Attributes",
+    "text": "Essential Token Attributes\n\n\nText & Form\n\n.text - Original text\n.lemma_ - Root form\n.lower_ - Lowercase\n.shape_ - Word shape\n\n\nLinguistic Properties\n\n.pos_ - Part of speech\n.tag_ - Detailed POS tag\n.dep_ - Dependency relation\n.ent_type_ - Entity type"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#token-boolean-properties",
+    "href": "tutorials/01-spacy-basics/slides.html#token-boolean-properties",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Token Boolean Properties",
+    "text": "Token Boolean Properties\ntoken.is_alpha     # Is alphabetic?\ntoken.is_punct     # Is punctuation?\ntoken.is_stop      # Is stop word?\ntoken.is_digit     # Is digit?\ntoken.like_url     # Looks like URL?\ntoken.like_email   # Looks like email?"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#interactive-example-token-analysis",
+    "href": "tutorials/01-spacy-basics/slides.html#interactive-example-token-analysis",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Interactive Example: Token Analysis",
+    "text": "Interactive Example: Token Analysis\n\n# Token exploration (interactive with Pyodide)\n\ntext = \"The researchers published their findings in 2023.\"\n\n# Would display live results:\n# for token in doc:\n#     print(f\"'{token.text}' -&gt; {token.pos_} -&gt; {token.lemma_}\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#text-preprocessing-made-easy",
+    "href": "tutorials/01-spacy-basics/slides.html#text-preprocessing-made-easy",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Text Preprocessing Made Easy",
+    "text": "Text Preprocessing Made Easy\n\nTokenization - Automatic, context-aware\nNormalization - Lemmatization, case handling\nFiltering - Remove stop words, punctuation\nFeature extraction - POS patterns, entity types"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#example-content-word-extraction",
+    "href": "tutorials/01-spacy-basics/slides.html#example-content-word-extraction",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Example: Content Word Extraction",
+    "text": "Example: Content Word Extraction\ndef extract_content_words(text):\n    doc = nlp(text)\n    return [token.lemma_.lower() \n            for token in doc \n            if token.is_alpha and not token.is_stop]\n\n# Usage\ncontent = extract_content_words(\"The researchers analyzed the data.\")\n# Result: [\"researcher\", \"analyze\", \"datum\"]"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#real-world-use-cases",
+    "href": "tutorials/01-spacy-basics/slides.html#real-world-use-cases",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Real-world Use Cases",
+    "text": "Real-world Use Cases\n\n\nText Analysis\n\nDocument similarity\nKeyword extraction\n\nText classification\nSentiment analysis\n\n\nLinguistic Research\n\nCorpus analysis\nSyntactic patterns\nLexical diversity\nLanguage change studies"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#installation-setup",
+    "href": "tutorials/01-spacy-basics/slides.html#installation-setup",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Installation & Setup",
+    "text": "Installation & Setup\n# Install spaCy\npip install spacy\n\n# Download English model\npython -m spacy download en_core_web_sm\n# Basic setup\nimport spacy\nnlp = spacy.load(\"en_core_web_sm\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#your-first-spacy-program",
+    "href": "tutorials/01-spacy-basics/slides.html#your-first-spacy-program",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Your First spaCy Program",
+    "text": "Your First spaCy Program\nimport spacy\n\n# Load the model\nnlp = spacy.load(\"en_core_web_sm\")\n\n# Process text\ntext = \"Hello, spaCy learners!\"\ndoc = nlp(text)\n\n# Explore tokens\nfor token in doc:\n    print(f\"{token.text} -&gt; {token.pos_}\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#ready-to-practice",
+    "href": "tutorials/01-spacy-basics/slides.html#ready-to-practice",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Ready to Practice?",
+    "text": "Ready to Practice?\n\n\n\n\n\n\n🚀 Hands-on Assignment\n\n\nTime to get your hands dirty with real spaCy code!\nChoose your environment: - Launch in Binder - Open in Colab\nWhat you’ll do: - Load spaCy models - Process your first documents\n- Explore token attributes - Build analysis functions"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#learning-path",
+    "href": "tutorials/01-spacy-basics/slides.html#learning-path",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Learning Path",
+    "text": "Learning Path\n\n✅ Unit 1: spaCy Basics (Current)\n\nCore objects and pipeline\n\n➡️ Unit 2: Tokens & POS\n\nDeep dive into linguistic features\n\n⭐ Unit 3: Dependencies & NER\n\nSyntax and named entities\n\n🔧 Unit 4: Pipelines\n\nCustom components and workflows"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#key-takeaways",
+    "href": "tutorials/01-spacy-basics/slides.html#key-takeaways",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nspaCy provides industrial-strength NLP capabilities\nThe pipeline architecture processes text into rich linguistic objects\nDoc and Token objects give you access to detailed language analysis\nPractical applications range from text preprocessing to linguistic research"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/slides.html#resources",
+    "href": "tutorials/01-spacy-basics/slides.html#resources",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Resources",
+    "text": "Resources\n\n📚 spaCy Documentation\n💻 Assignment Notebook\n➡️ Unit 2: Tokens & POS\n🏠 Course Home"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "",
+    "text": "Learning Goals: - Load spaCy models and process text - Understand the relationship between nlp, Doc, and Token objects - Explore basic token attributes - Practice iterating through documents and tokens"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exploring-spacys-core-objects",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exploring-spacys-core-objects",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "",
+    "text": "Learning Goals: - Load spaCy models and process text - Understand the relationship between nlp, Doc, and Token objects - Explore basic token attributes - Practice iterating through documents and tokens"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#setup",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#setup",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Setup",
+    "text": "Setup\nFirst, let’s install and import spaCy. If you’re running this in Colab, uncomment the first two lines.\n\n\nShow code\n# Uncomment these lines if running in Google Colab:\n# !pip install spacy\n# !python -m spacy download en_core_web_sm\n\nimport spacy\nimport pandas as pd\n\n# Load the English model\nnlp = spacy.load(\"en_core_web_sm\")\nprint(f\"spaCy version: {spacy.__version__}\")\nprint(f\"Model loaded: {nlp.meta['name']}\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-1-your-first-spacy-document",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-1-your-first-spacy-document",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Exercise 1: Your First spaCy Document",
+    "text": "Exercise 1: Your First spaCy Document\nLet’s start by processing a simple sentence and exploring the resulting Doc object.\n\n\nShow code\n# Process a sample text\ntext = \"Natural language processing with spaCy is powerful and efficient.\"\ndoc = nlp(text)\n\nprint(f\"Original text: {text}\")\nprint(f\"Doc object: {doc}\")\nprint(f\"Type of doc: {type(doc)}\")\nprint(f\"Number of tokens: {len(doc)}\")\n\n\n\nTask 1.1: Process Your Own Text\nCreate a variable called my_text with a sentence of your choice, process it with spaCy, and print basic information about the resulting document.\n\n\nShow code\n# TODO: Create your own text and process it\nmy_text = \"\"  # Replace with your sentence\nmy_doc = None  # Process my_text with nlp()\n\n# TODO: Print the text, document, and token count\n# Your code here\n\n\n\n\nShow code\n# Test your solution\nassert len(my_text) &gt; 0, \"Please provide some text\"\nassert my_doc is not None, \"Please process the text with nlp()\"\nassert len(my_doc) &gt; 0, \"The document should contain tokens\"\nprint(\"✅ Task 1.1 completed successfully!\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-2-exploring-tokens",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-2-exploring-tokens",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Exercise 2: Exploring Tokens",
+    "text": "Exercise 2: Exploring Tokens\nNow let’s look at individual tokens and their attributes.\n\n\nShow code\n# Let's examine each token in our document\ntext = \"The quick brown fox jumps over the lazy dog.\"\ndoc = nlp(text)\n\nprint(\"Token Analysis:\")\nprint(\"-\" * 50)\nfor token in doc:\n    print(f\"Text: '{token.text}' | Lemma: '{token.lemma_}' | POS: '{token.pos_}' | Is Stop: {token.is_stop}\")\n\n\n\nTask 2.1: Token Attribute Explorer\nComplete the function below to extract specific token attributes.\n\n\nShow code\ndef analyze_tokens(text):\n    \"\"\"\n    Analyze tokens in a text and return lists of different attributes.\n    \n    Args:\n        text (str): Input text to analyze\n        \n    Returns:\n        dict: Dictionary with lists of token attributes\n    \"\"\"\n    doc = nlp(text)\n    \n    result = {\n        'tokens': [],\n        'lemmas': [],\n        'pos_tags': [],\n        'is_alpha': [],\n        'is_stop': []\n    }\n    \n    # TODO: Fill in the lists by iterating through tokens\n    for token in doc:\n        result['tokens'].append(token.text)  # Example - complete the rest\n        # TODO: Add token.lemma_ to lemmas list\n        # TODO: Add token.pos_ to pos_tags list  \n        # TODO: Add token.is_alpha to is_alpha list\n        # TODO: Add token.is_stop to is_stop list\n    \n    return result\n\n# Test your function\nsample_text = \"I'm learning spaCy for NLP analysis!\"\nanalysis = analyze_tokens(sample_text)\n\n# Display results as a DataFrame for easy viewing\ndf = pd.DataFrame(analysis)\nprint(df)\n\n\n\n\nShow code\n# Test your solution\ntest_analysis = analyze_tokens(\"Hello world!\")\nassert len(test_analysis['lemmas']) &gt; 0, \"Please fill in the lemmas list\"\nassert len(test_analysis['pos_tags']) &gt; 0, \"Please fill in the pos_tags list\"\nassert len(test_analysis['is_alpha']) &gt; 0, \"Please fill in the is_alpha list\"\nassert len(test_analysis['is_stop']) &gt; 0, \"Please fill in the is_stop list\"\nprint(\"✅ Task 2.1 completed successfully!\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-3-filtering-tokens",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-3-filtering-tokens",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Exercise 3: Filtering Tokens",
+    "text": "Exercise 3: Filtering Tokens\nOften we want to filter tokens based on certain criteria. Let’s practice this.\n\nTask 3.1: Content Words Only\nCreate a function that extracts only “content words” (words that are alphabetic and not stop words).\n\n\nShow code\ndef extract_content_words(text):\n    \"\"\"\n    Extract content words (alphabetic, non-stop words) from text.\n    \n    Args:\n        text (str): Input text\n        \n    Returns:\n        list: List of content words (lowercased)\n    \"\"\"\n    doc = nlp(text)\n    content_words = []\n    \n    # TODO: Iterate through tokens and add content words\n    for token in doc:\n        # TODO: Check if token is alphabetic AND not a stop word\n        if ...  # Complete this condition\n            content_words.append(token.text.lower())\n    \n    return content_words\n\n# Test your function\ntest_text = \"The quick brown fox jumps over the lazy dog in the park.\"\ncontent = extract_content_words(test_text)\nprint(f\"Original: {test_text}\")\nprint(f\"Content words: {content}\")\n\n\n\n\nShow code\n# Test your solution\ntest_content = extract_content_words(\"The cat sat on the mat.\")\nassert 'cat' in test_content, \"Should include content words like 'cat'\"\nassert 'sat' in test_content, \"Should include content words like 'sat'\"\nassert 'the' not in test_content, \"Should not include stop words like 'the'\"\nassert 'on' not in test_content, \"Should not include stop words like 'on'\"\nprint(\"✅ Task 3.1 completed successfully!\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-4-document-statistics",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-4-document-statistics",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Exercise 4: Document Statistics",
+    "text": "Exercise 4: Document Statistics\nLet’s create a comprehensive analysis function that provides various statistics about a document.\n\nTask 4.1: Document Analyzer\nComplete the function below to calculate various document statistics.\n\n\nShow code\ndef analyze_document(text):\n    \"\"\"\n    Provide comprehensive statistics about a text document.\n    \n    Args:\n        text (str): Input text\n        \n    Returns:\n        dict: Dictionary with various statistics\n    \"\"\"\n    doc = nlp(text)\n    \n    # TODO: Calculate these statistics\n    stats = {\n        'total_tokens': 0,           # Total number of tokens\n        'alphabetic_tokens': 0,      # Number of alphabetic tokens\n        'punctuation_tokens': 0,     # Number of punctuation tokens\n        'stop_words': 0,             # Number of stop words\n        'content_words': 0,          # Number of content words (alphabetic + non-stop)\n        'unique_lemmas': 0,          # Number of unique lemmas\n        'avg_token_length': 0.0      # Average token length\n    }\n    \n    # TODO: Implement the calculations\n    lemmas_set = set()  # To track unique lemmas\n    total_length = 0    # To calculate average length\n    \n    for token in doc:\n        stats['total_tokens'] += 1\n        \n        # TODO: Update other statistics based on token properties\n        # Hint: Use token.is_alpha, token.is_punct, token.is_stop\n        # Remember to add to lemmas_set and total_length\n    \n    # TODO: Calculate unique lemmas and average length\n    stats['unique_lemmas'] = len(lemmas_set)\n    if stats['total_tokens'] &gt; 0:\n        stats['avg_token_length'] = total_length / stats['total_tokens']\n    \n    return stats\n\n# Test with sample text\nsample = \"Natural language processing is fascinating! It involves computational linguistics, machine learning, and artificial intelligence.\"\nstats = analyze_document(sample)\n\nprint(\"Document Statistics:\")\nprint(\"-\" * 30)\nfor key, value in stats.items():\n    print(f\"{key}: {value}\")\n\n\n\n\nShow code\n# Test your solution\ntest_stats = analyze_document(\"Hello, world! This is a test.\")\nassert test_stats['total_tokens'] &gt; 0, \"Should count total tokens\"\nassert test_stats['punctuation_tokens'] &gt; 0, \"Should count punctuation\"\nassert test_stats['alphabetic_tokens'] &gt; 0, \"Should count alphabetic tokens\"\nassert test_stats['avg_token_length'] &gt; 0, \"Should calculate average length\"\nprint(\"✅ Task 4.1 completed successfully!\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-5-real-world-application",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#exercise-5-real-world-application",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Exercise 5: Real-world Application",
+    "text": "Exercise 5: Real-world Application\nLet’s apply what we’ve learned to analyze a longer piece of text.\n\n\nShow code\n# Sample article text\narticle = \"\"\"\nArtificial intelligence has revolutionized many industries in recent years. \nFrom healthcare to finance, AI systems are transforming how we work and live. \nNatural language processing, a subset of AI, enables computers to understand \nand generate human language. This technology powers chatbots, translation \nservices, and text analysis tools. Machine learning algorithms continue to \nimprove, making AI more accurate and efficient than ever before.\n\"\"\".strip()\n\nprint(\"Article Analysis:\")\nprint(\"=\" * 50)\nprint(f\"Text: {article[:100]}...\")\nprint()\n\n# Analyze the article\narticle_stats = analyze_document(article)\ncontent_words = extract_content_words(article)\n\nprint(\"Statistics:\")\nfor key, value in article_stats.items():\n    print(f\"  {key}: {value}\")\n\nprint(f\"\\nTop content words: {content_words[:10]}\")\n\n\n\nTask 5.1: Word Frequency Analysis\nCreate a simple word frequency counter for content words.\n\n\nShow code\nfrom collections import Counter\n\ndef word_frequency_analysis(text, top_n=10):\n    \"\"\"\n    Analyze word frequency in text (content words only).\n    \n    Args:\n        text (str): Input text\n        top_n (int): Number of top words to return\n        \n    Returns:\n        list: List of (word, frequency) tuples\n    \"\"\"\n    # TODO: Get content words and count their frequency\n    content_words = extract_content_words(text)\n    # TODO: Use Counter to count word frequencies\n    # TODO: Return the top_n most common words\n    \n    pass  # Replace with your implementation\n\n# Test with the article\ntop_words = word_frequency_analysis(article, top_n=5)\nprint(\"Top 5 content words:\")\nfor word, freq in top_words:\n    print(f\"  {word}: {freq}\")"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#reflection-questions",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#reflection-questions",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Reflection Questions",
+    "text": "Reflection Questions\nAnswer these questions based on what you’ve learned:\n\nWhat is the relationship between nlp, Doc, and Token objects in spaCy?\nWhy might you want to filter out stop words in text analysis?\nWhat are some advantages of using spaCy over simple string methods for text processing?\nHow could the token attributes we explored be useful in real NLP applications?"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#summary",
+    "href": "tutorials/01-spacy-basics/01_tokens_pos_assignment.html#summary",
+    "title": "Unit 1 Assignment: spaCy Basics",
+    "section": "Summary",
+    "text": "Summary\nCongratulations! You’ve completed Unit 1. You now understand:\n✅ How to load spaCy models and process text\n✅ The hierarchy of spaCy objects (nlp → Doc → Token)\n✅ Key token attributes like text, lemma_, pos_, is_stop\n✅ How to filter and analyze tokens programmatically\n✅ Basic text statistics and frequency analysis\nNext up: Unit 2 - Tokens & POS where we’ll dive deeper into part-of-speech tagging and linguistic analysis!"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html",
+    "href": "tutorials/01-spacy-basics/index.html",
+    "title": "Unit 1: spaCy Basics",
+    "section": "",
+    "text": "By the end of this unit, you will be able to:\n\nExplain spaCy’s core architecture and pipeline concept\nIdentify and work with spaCy’s main objects (nlp, Doc, Token)\nPerform basic text tokenization and inspection\nUnderstand the relationship between documents, tokens, and linguistic annotations"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#learning-objectives",
+    "href": "tutorials/01-spacy-basics/index.html#learning-objectives",
+    "title": "Unit 1: spaCy Basics",
+    "section": "",
+    "text": "By the end of this unit, you will be able to:\n\nExplain spaCy’s core architecture and pipeline concept\nIdentify and work with spaCy’s main objects (nlp, Doc, Token)\nPerform basic text tokenization and inspection\nUnderstand the relationship between documents, tokens, and linguistic annotations"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#what-is-spacy",
+    "href": "tutorials/01-spacy-basics/index.html#what-is-spacy",
+    "title": "Unit 1: spaCy Basics",
+    "section": "What is spaCy?",
+    "text": "What is spaCy?\nspaCy is an industrial-strength Natural Language Processing (NLP) library designed for production use. Unlike academic NLP toolkits, spaCy focuses on:\n\nSpeed and efficiency - Optimized for real-world applications\nEase of use - Intuitive API with sensible defaults\nProduction-ready - Built for integration into applications\nModern architecture - Deep learning models under the hood"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#interactive-slides",
+    "href": "tutorials/01-spacy-basics/index.html#interactive-slides",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Interactive Slides",
+    "text": "Interactive Slides\nWork through the conceptual introduction with live code examples:\n\n\n\n\n\n\nNote📊 Interactive Slides\n\n\n\nLaunch spaCy Basics Slides\nIncludes live Python code that runs directly in your browser"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#hands-on-assignment",
+    "href": "tutorials/01-spacy-basics/index.html#hands-on-assignment",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Hands-on Assignment",
+    "text": "Hands-on Assignment\nPractice what you’ve learned with real spaCy code:\n\n\n\n\n\n\nTip🚀 Assignment Notebook\n\n\n\nChoose your preferred environment:\n \nWhat you’ll do: - Install and load spaCy models - Process your first documents - Explore token attributes - Complete guided exercises with instant feedback"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#key-concepts-covered",
+    "href": "tutorials/01-spacy-basics/index.html#key-concepts-covered",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Key Concepts Covered",
+    "text": "Key Concepts Covered\n\n1. The spaCy Pipeline\n# This is what happens when you call nlp()\nnlp = spacy.load(\"en_core_web_sm\")\ndoc = nlp(\"Hello world!\")  # Text → Doc object\n\n\n2. Core Objects Hierarchy\nnlp (Language)\n └── doc (Doc)              # Processed document\n     └── token (Token)      # Individual word/punctuation\n         └── attributes     # pos_, lemma_, ent_type_, etc.\n\n\n3. Essential Token Attributes\n\n.text - Original text\n.lemma_ - Root form of the word\n.pos_ - Part-of-speech tag\n.is_punct - Is punctuation?\n.is_stop - Is stop word?"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#prerequisites",
+    "href": "tutorials/01-spacy-basics/index.html#prerequisites",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nBefore starting this unit, you should be comfortable with:\n\nBasic Python syntax (variables, functions, loops)\nWorking with strings and lists\nUsing Jupyter notebooks"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#next-steps",
+    "href": "tutorials/01-spacy-basics/index.html#next-steps",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Next Steps",
+    "text": "Next Steps\nAfter completing this unit:\n\n✅ Complete the assignment notebook exercises\n➡️ Continue to Unit 2: Tokens & POS\n📚 Optional: Explore the spaCy documentation"
+  },
+  {
+    "objectID": "tutorials/01-spacy-basics/index.html#getting-help",
+    "href": "tutorials/01-spacy-basics/index.html#getting-help",
+    "title": "Unit 1: spaCy Basics",
+    "section": "Getting Help",
+    "text": "Getting Help\nStuck on something? Here are some resources:\n\n📖 spaCy Usage Guides\n💬 spaCy Discussions\n🎯 Review the slides for conceptual explanations\n🔄 Try the interactive examples in the assignment notebook"
+  }
+]
